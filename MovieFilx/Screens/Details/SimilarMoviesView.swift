@@ -13,7 +13,7 @@ struct SimilarMoviesView: View {
     var body: some View {
         VStack(alignment: .leading) {
             if !viewModel.similarMovies.isEmpty {
-                Text("Similar Movies")
+                Text("similar_movies")
                     .applyDetailTitleFont()
             }
 

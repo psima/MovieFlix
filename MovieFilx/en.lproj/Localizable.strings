@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  MovieFilx
+
+  Created by Pavlos Simas on 4/3/25.
+  
+*/
+
+"description" = "Description";
+"reviews" = "Reviews";
+"similar_movies" = "Similar Movies";

@@ -24,7 +24,7 @@ struct MovieDetailView: View {
                     .environmentObject(viewModel)
 
                 if let overview = viewModel.movieDetails?.overview {
-                    Text("Description")
+                    Text("description")
                         .applyDetailTitleFont()
                     Text(overview)
                 }

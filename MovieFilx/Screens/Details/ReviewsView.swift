@@ -14,7 +14,7 @@ struct ReviewsView: View {
         VStack(alignment: .leading, spacing: 20) {
             
             if !viewModel.firstReviews(count: 2).isEmpty {
-                Text("Reviews")
+                Text("reviews")
                     .applyDetailTitleFont()
             }
 
