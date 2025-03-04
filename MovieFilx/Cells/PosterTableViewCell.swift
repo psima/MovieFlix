@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class PosterTableViewCell: UITableViewCell {
 
@@ -32,7 +33,7 @@ class PosterTableViewCell: UITableViewCell {
         containerView.layer.borderColor = UIColor.orange.cgColor
         titleView.textColor = .white
         
-        movieThumView.showAnimatedGradientSkeleton() 
+        movieThumView.isSkeletonable = true
         self.contentView.isSkeletonable = true
         
         // Add gradient color
@@ -60,14 +61,15 @@ class PosterTableViewCell: UITableViewCell {
         movieThumView.image = nil // Reset image
         movieThumView.showAnimatedSkeleton()
         setupFavorite(movieId: movie.id)
-        if let posterPath = movie.posterPath {
+        if let backdropPath = movie.backdropPath {
             
-            let posterURL = "\(Constants.imageURLString)\(posterPath)"
-            self.tag = posterURL.hashValue
-            AsyncImageLoader.shared.loadImage(from: posterURL) { image in
+            let backdropPathURL = "\(Constants.imageURLString)\(backdropPath)"
+            self.tag = backdropPathURL.hashValue
+            AsyncImageLoader.shared.loadImage(from: backdropPathURL) { image in
                 guard let image = image else { return }
-                if self.tag == posterURL.hashValue {
+                if self.tag == backdropPathURL.hashValue {
                     self.movieThumView.image = image
+                    self.movieThumView.hideSkeleton()
                 }
             }
         }
